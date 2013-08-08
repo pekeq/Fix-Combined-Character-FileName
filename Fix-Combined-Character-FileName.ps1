@@ -1,5 +1,5 @@
 Param (
-  [String]$Path = ".",
+	[String]$Path = ".",
 	[Switch]$Rename,
 	[Switch]$Confirm
 )
