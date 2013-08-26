@@ -1,3 +1,33 @@
+<#
+.SYNOPSIS
+ファイル名、ディレクトリ名のUNICODE結合文字を、普通の１文字に変換する
+
+.DESCRIPTION
+ファイル名、ディレクトリ名のUNICODE結合文字になっている部分を、普通の１文字に変換する。
+例えば、「か + ゛(濁点記号)」を、「が」に変換する。
+
+Macは、ファイル名をUNICODE結合文字で保存するが、Windowsは、普通の１文字で保存するので、
+MacからWindowsに、USBメモリーでファイルをコピーした際など、MacとWindowsのファイル交換時に
+問題が生じる。
+
+Macからファイルをコピーしてきた後で、このスクリプトを動かして、ファイル名をWindowsの
+一般的な形式に変換しておくと、後々トラブルになりにくい。
+
+.PARAMETER Path
+変換対象のパス名。このPath以下の全ファイル、ディレクトリに対して処理を実行する。
+
+.PARAMETER Rename
+実際にファイル名をリネームするかどうか。
+
+.PARAMETER Confirm
+RENコマンドを実行する前に確認するかどうか。
+
+.LINK
+https://gist.github.com/pekeq/6182948
+#>
+
+# このファイルはSJISで保存してください
+
 Param (
 	[String]$Path = ".",
 	[Switch]$Rename,
